@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
-    
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +13,7 @@
     "dotenv": "^5.0.0",
     "emtmad-bus-times-node": "0.0.1",
     "node-telegram-bot-api": "^0.30.0",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "twitter": "^1.7.1"
   }
 }
