@@ -3,9 +3,9 @@ const request = require('request');
 require('dotenv').config()
 
 const token = process.env.token_bot;
-const bot = new TelegramBot(token, {polling: true});
+const bot   = new TelegramBot(token, {polling: true});
 
-//require('./funcionesConBarra')(bot)
+//require('./msgSystem')(bot)
 require('./emt.js')(bot)
 
 
