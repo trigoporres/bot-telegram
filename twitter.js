@@ -14,14 +14,13 @@
 
   var params = {
     q: '@trigoporres',
-    count: 10,
+    count: 1,
     result_type: 'recent',
     lang: 'es'
   }
   
   // Initiate your search using the above paramaters
   twitter.get('search/tweets', params, function(err, data, response) {
-    console.log(data)
     // If there is no error, proceed
     if(!err){
       // Loop through the returned tweets
@@ -30,6 +29,7 @@
         let id = { id: data.statuses[i].id_str }
         // Try to Favorite the selected Tweet
         twitter.post('favorites/create', id, function(err, response){
+          console.log(response.user)
           // If the favorite fails, log the error message
           if(err){
             console.log(err[0].message);
