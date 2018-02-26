@@ -3,22 +3,22 @@ module.exports = (bot) => {
   emtmadApi.initAPICredentials(process.env.token_emt,process.env.pass_emt);
 
   bot.on('message', (msg) => {
-    console.log(msg)
+    //console.log(msg)
     if(msg.text.includes("Parada")){  
-      var busStopNumber = msg.text.replace("Parada",'');
+      let busStopNumber = msg.text.replace("Parada",'');
   
       emtmadApi.getIncomingBusesToStop( busStopNumber, (output) => {
         if (output.status == 200 && output.arrives != undefined){
   
           const chatId = msg.chat.id;
-          console.log(output.arrives)
-          
-          for(var i = 0; i < output.arrives.length; i++){
-            bot.sendMessage(chatId, i + " El proximo autobus de la linea " +output.arrives[i]     .lineId + " con destino " + output.arrives[i].destination + " va a tardar " + Math.trunc(output.arrives[i].busTimeLeft/60) + " minutos " + output.arrives[i].busDistance + " metros")
-            //bot.sendLocation(chatId,output.arrives[i].latitude,output.arrives[i].longitude);
-            console.log("prueba" + i)
-          }
-  
+          //console.log(msg)
+          let info = "";
+
+          output.arrives.forEach(element => {
+            info += (chatId, " El proximo autobus de la linea " +element.lineId + " con destino " + element.destination + " va a tardar " + Math.trunc(element.busTimeLeft/60) + " minutos y le quedan " + element.busDistance + " metros para llegar \n\n")
+          });
+          bot.sendMessage(chatId, info)
+          //bot.sendLocation(chatId,output.arrives[i].latitude,output.arrives[i].longitude);
         }
         else if (output.status == 400){
           console.log(output.error);
