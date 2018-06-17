@@ -11,7 +11,7 @@ module.exports = (bot) => {
         if (output.status == 200 && output.arrives != undefined){
   
           const chatId = msg.chat.id;
-          //console.log(msg)
+          console.log(output.arrives)
           let info = "";
 
           output.arrives.forEach(element => {

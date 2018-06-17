@@ -8,10 +8,3 @@ const bot   = new TelegramBot(token, {polling: true});
 //require('./msgSystem')(bot)
 require('./emt.js')(bot)
 
-
-
-
-
-
-
-

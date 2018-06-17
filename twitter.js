@@ -13,7 +13,7 @@
   });
 
   var params = {
-    q: '@trigoporres',
+    q: '#node',
     count: 1,
     result_type: 'recent',
     lang: 'es'
